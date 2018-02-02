@@ -22,6 +22,9 @@ public class Utils {
     private static void initProps() {
         props = new Properties();
         try {
+            if (System.getProperty("config.path") == null) {
+                throw new RuntimeException("Configuration file was not specified. Please use \"config.path\" property to specify the path.");
+            }
             File fileProp = new File(System.getProperty("config.path"));
             props.load(new FileInputStream(fileProp));
             if (getUserName().isEmpty() && getPeriod() == null && getCustomMsg().isEmpty()) {
