@@ -42,7 +42,7 @@ public class Utils {
     }
 
     public static String getLogFilePattern() {
-        return props.getProperty("logFilePattern.regexp");
+        return props.getProperty("log.file.pattern.regexp");
     }
 
     public static Path getDirectoryPath() {

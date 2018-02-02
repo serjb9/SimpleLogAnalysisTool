@@ -20,7 +20,7 @@ At first, you should configure properties file and provide the path to the appli
 #### Prop list:
 - `directory` - directory to be scanned;
 
-- `logFilePattern.regexp`- desirable pattern for file to be searched (regexp);
+- `log.file.pattern.regexp`- desirable pattern for file to be searched (regexp);
 
 - `record.date.format` -  expected date format of a record in a file;
 
