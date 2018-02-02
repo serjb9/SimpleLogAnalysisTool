@@ -1,5 +1,5 @@
 # SimpleLogAnalysisTool
-A tool allows to scan a directory for applicable pattern with some custom filter and grouping and produces output after scanning.
+The tool allows to scan a directory for applicable pattern with some custom filter and grouping and produces output after scanning.
 
 ------------
 
@@ -20,7 +20,7 @@ At first, you should configure properties file and provide the path to the appli
 #### Prop list:
 - `directory` - directory to be scanned;
 
-- `log.file.pattern.regexp`- desirable pattern for file to be searched (regexp);
+- `log.file.pattern.regexp`- desirable pattern for a file to be searched (regexp);
 
 - `record.date.format` -  expected date format of a record in a file;
 
