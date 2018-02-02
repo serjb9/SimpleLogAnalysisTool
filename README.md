@@ -1,2 +1,2 @@
 # SimpleLogAnalysisTool
-A tool allows to scan a directory for applicable pattern with some custom filter and grouping
+A tool allows to scan a directory for applicable pattern with some custom filter and grouping and produces output after scanning.
