@@ -10,6 +10,6 @@ public class Main {
     public static void main(String[] args) {
         SimpleLogAnalyser analyzer = new SimpleLogAnalyser();
         analyzer.analyzeFolder();
-        LOG.info(" - - - Done.\n");
+//        LOG.info(" - - - Done.\n");
     }
 }
