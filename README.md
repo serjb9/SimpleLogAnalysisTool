@@ -18,9 +18,9 @@ java -jar -Dconfig.path="path\\to\\config\\prop.properties" SimpleLogAnalysisToo
 At first, you should configure properties file and provide the path to the application using `config.path`.
 
 #### Prop list:
-- `directory` - Directory to be scanned
+- `directory` - directory to be scanned;
 
-- `logFilePattern.regexp`- desirable pattern for file to be searched (regexp)
+- `logFilePattern.regexp`- desirable pattern for file to be searched (regexp);
 
 - `record.date.format` -  expected date format of a record in a file;
 
