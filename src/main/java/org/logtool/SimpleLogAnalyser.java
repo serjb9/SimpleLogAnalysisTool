@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class SimpleLogAnalyser {
 
@@ -63,8 +64,10 @@ public class SimpleLogAnalyser {
                     dateResults.keySet().forEach(i -> dateResults.merge(i, dateResults.get(i), Long::sum));
                 }
             }
-            getCSVFileIO().writeResultsToFile(dateResults);
+            dateResults = sort(dateResults);
             getConsoleTableIO().printByGroup(dateResults);
+            getCSVFileIO().writeResultsToFile(dateResults);
+
 
         } else if (by.contains("username")) {
             for (Path p : getPathList()) {
@@ -75,8 +78,8 @@ public class SimpleLogAnalyser {
                     countByUsername = getAggregator().aggregateRecordsByUsername(filteredRecords);
                 }
             }
-            getCSVFileIO().writeResultsToFile(countByUsername);
             getConsoleTableIO().printByUsername(countByUsername);
+            getCSVFileIO().writeResultsToFile(countByUsername);
         } else {
             throw new RuntimeException("No valid group parameters were given.");
         }
@@ -119,6 +122,12 @@ public class SimpleLogAnalyser {
 
     public ConsoleTableIO getConsoleTableIO() {
         return consoleTableIO;
+    }
+
+    private Map<String, Long> sort(Map<String, Long> map) {
+        return map.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getKey))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (k, v) -> k, LinkedHashMap::new));
     }
 }
 

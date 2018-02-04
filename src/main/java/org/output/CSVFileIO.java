@@ -26,7 +26,7 @@ public class CSVFileIO {
         this.writer = getWriter();
     }
 
-    public synchronized void writeResultsToFile(Map<String, Long> resultsMap) {
+    public void writeResultsToFile(Map<String, Long> resultsMap) {
         String[] headerRecord = {Utils.getGroupParams().split(",")[1], "Count of records"};
         getCsvWriter(getWriter()).writeNext(headerRecord);
         resultsMap.forEach((key, value) -> {
@@ -37,7 +37,7 @@ public class CSVFileIO {
         LOG.info(" - - - Results were written to the file: " + outputFile.toAbsolutePath());
     }
 
-    public synchronized void writeResultsToFile(Long count) {
+    public void writeResultsToFile(Long count) {
         String[] headerRecord = {"Username", "Count of records"};
         String[] line = {Utils.getUserName(), String.valueOf(count)};
         write(headerRecord);
