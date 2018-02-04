@@ -61,7 +61,13 @@ public class SimpleLogAnalyser {
                 if (aggregatedRecords.keySet().size() != 0 && dateResults.keySet().size() == 0) {
                     dateResults.putAll(aggregatedRecords);
                 } else {
-                    dateResults.keySet().forEach(i -> dateResults.merge(i, dateResults.get(i), Long::sum));
+                    aggregatedRecords.keySet().forEach(i -> {
+                        if (dateResults.get(i) == null) {
+                            dateResults.put(i, aggregatedRecords.get(i));
+                        } else {
+                            dateResults.merge(i, aggregatedRecords.get(i), Long::sum);
+                        }
+                    });
                 }
             }
             dateResults = sort(dateResults);
