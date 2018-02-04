@@ -37,7 +37,7 @@ public class CSVFileIO {
         LOG.info(" - - - Results were written to the file: " + outputFile.toAbsolutePath());
     }
 
-    public void writeResultsToFile(Long count) {
+    public synchronized void writeResultsToFile(Long count) {
         String[] headerRecord = {"Username", "Count of records"};
         String[] line = {Utils.getUserName(), String.valueOf(count)};
         write(headerRecord);

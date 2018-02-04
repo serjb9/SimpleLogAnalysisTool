@@ -57,26 +57,16 @@ public class SimpleLogAnalyser {
             for (Path path : getPathList()) {
                 List<Date> filteredRecords = getFilteredRecords(path);
                 Map<String, Long> aggregatedRecords = getAggregator().aggregateRecordsByDate(by, filteredRecords);
-                if (!(dateResults.keySet().size() == 0 && aggregatedRecords.keySet().size() == 0)) {
-                    for (aggregatedRecords.keySet();;) {
-                        if (dateResults.keySet().size() != 0) {
-                            aggregatedRecords.keySet().forEach(key -> {
-                                if (dateResults.get(key) != null) {
-                                    dateResults.merge(key, aggregatedRecords.get(key), Long::sum);
-                                } else dateResults.putAll(aggregatedRecords);
-                            });
-                        } else {
-                            dateResults.putAll(aggregatedRecords);
-                        }
-                        break;
-                    }
+                if (aggregatedRecords.keySet().size() != 0 && dateResults.keySet().size() == 0) {
+                    dateResults.putAll(aggregatedRecords);
+                } else {
+                    dateResults.keySet().forEach(i -> dateResults.merge(i, dateResults.get(i), Long::sum));
                 }
             }
             getCSVFileIO().writeResultsToFile(dateResults);
             getConsoleTableIO().printByGroup(dateResults);
 
-        }
-         else if (by.contains("username")) {
+        } else if (by.contains("username")) {
             for (Path p : getPathList()) {
                 List<Date> filteredRecords = getFilteredRecords(p);
                 if (countByUsername != null) {
