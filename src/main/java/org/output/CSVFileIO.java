@@ -26,7 +26,7 @@ public class CSVFileIO {
         this.writer = getWriter();
     }
 
-    public void writeResultsToFile(Map<String, Long> resultsMap) {
+    public synchronized void writeResultsToFile(Map<String, Long> resultsMap) {
         String[] headerRecord = {Utils.getGroupParams().split(",")[1], "Count of records"};
         getCsvWriter(getWriter()).writeNext(headerRecord);
         resultsMap.forEach((key, value) -> {
