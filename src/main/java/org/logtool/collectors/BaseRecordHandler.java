@@ -18,8 +18,8 @@ public abstract class BaseRecordHandler {
             Utils.getPeriod());
 
     protected SimpleDateFormat dateFormatter = new SimpleDateFormat(Utils.getDatePattern(), Locale.ENGLISH);
-    protected SimpleDateFormat dayFormatter = new SimpleDateFormat("YYYY/MM/dd", Locale.ENGLISH);
-    protected SimpleDateFormat hourFormatter = new SimpleDateFormat("YYYY/MM/dd - HH:00", Locale.ENGLISH);
-    protected SimpleDateFormat monthFormatter = new SimpleDateFormat("YYYY/MM", Locale.ENGLISH);
+    protected SimpleDateFormat dayFormatter = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+    protected SimpleDateFormat hourFormatter = new SimpleDateFormat("yyyy/MM/dd - HH:00", Locale.ENGLISH);
+    protected SimpleDateFormat monthFormatter = new SimpleDateFormat("yyyy/MM", Locale.ENGLISH);
 
 }
