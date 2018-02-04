@@ -21,6 +21,6 @@ public class ConsoleTableIO {
 
     public void printByGroup(Map<String, Long> map) {
         printHeader(Utils.getGroupParams());
-        map.forEach((key, value) -> System.out.format("| %-25s| %-25o|\n", key, value));
+        map.forEach((key, value) -> System.out.format("| %-25s| %-25d|\n", key, value));
     }
 }
