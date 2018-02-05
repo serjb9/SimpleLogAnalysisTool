@@ -17,7 +17,7 @@ public class RecordFilter extends BaseRecordHandler {
     private static final Logger LOG = org.slf4j.LoggerFactory.getLogger(RecordFilter.class);
 
     public RecordFilter() {
-        logRecordMatcher = new LineMatcher(String.format("%s(\\t+|\\s+)-(\\t+|\\s+)%s(\\t+|\\s+)-(\\t+|\\s+)%s",
+        logRecordMatcher = new LineMatcher(String.format("%s(\\t+|\\s+|)-(\\t+|\\s+|)%s(\\t+|\\s+|)-(\\t+|\\s+|)%s",
                 new LineMatcher(Utils.getDatePatternRegExp()).getStringPattern(),
                 new LineMatcher(Utils.getUserName()).getStringPattern(),
                 new LineMatcher(Utils.getCustomMsg()).getStringPattern()));
